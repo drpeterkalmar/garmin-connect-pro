@@ -1,0 +1,6 @@
+{% if streak == 3 %}🎉 **3-Tage-Streak!** Der Anfang ist gemacht!
+{% elif streak == 7 %}🔥 **Eine Woche am Ball!** Disziplin zahlt sich aus.
+{% elif streak == 14 %}💪 **Zwei Wochen!** Das ist schon Routine.
+{% elif streak == 30 %}🏆 **30 Tage!** Ein Monat Konsistenz — Respekt!
+{% elif streak % 7 == 0 and streak >= 21 %}🌟 **{{ streak }} Tage!** {{ streak//7 }} Wochen durchgezogen.
+{% endif %}

@@ -1,0 +1,16 @@
+🏃‍♂️ **Daily Movement — {{ date.strftime("%A, %d. %B") }}**
+
+{% if summary.total_activities == 0 %}
+😴 Ruhetag — morgen geht's weiter! 
+   Aktueller Streak: {{ streak }} Tag{% if streak != 1 %}e{% endif %} 🔥
+{% else %}
+✅ {{ summary.total_activities }} Aktivität{% if summary.total_activities != 1 %}en{% endif %}
+📏 {{ "%.1f"|format(summary.total_distance_km) }} km  •  ⏱ {{ summary.total_duration_min }} min  •  🔥 {{ summary.total_calories }} kcal
+{% for type, count in summary.activity_types.items() %}
+   • {{ type|title }}: {{ count }}
+{% endfor %}
+{% if summary.primary_activity %}
+🏆 Highlight: {{ summary.primary_activity.activity_name }} ({{ "%.1f"|format(summary.primary_activity.distance_meters/1000) }} km)
+{% endif %}
+🔥 **Streak: {{ streak }} Tag{% if streak != 1 %}e{% endif %}** — weiter so!
+{% endif %}

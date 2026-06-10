@@ -1,0 +1,12 @@
+📊 **Wochen-Rückblick — KW {{ summary.week_start.isocalendar()[1] }} ({{ summary.week_start.strftime("%d.%m.")}}–{{ summary.week_end.strftime("%d.%m.")}})**
+
+{% if summary.total_activities == 0 %}
+Diese Woche war ruhig. Nächste Woche rocken wir's! 💪
+{% else %}
+✅ {{ summary.total_activities }} Aktivitäten
+📏 {{ "%.1f"|format(summary.total_distance_km) }} km total
+⏱ {{ "%.1f"|format(summary.total_duration_hours) }} Std. Bewegung
+🔥 {{ summary.total_calories }} kcal verbrannt
+📅 {{ summary.active_days }}/7 aktive Tage
+🔥 **Streak: {{ streak }} Tage** {% if streak >= 7 %}🔥{% elif streak >= 3 %}⭐{% endif %}
+{% endif %}
